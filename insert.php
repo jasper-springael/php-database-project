@@ -8,8 +8,15 @@
 </head>
 <body>
     <?php
-        require 'connection.php';
+        require_once 'connection.php';
         include 'index.php';
+        var_dump($_POST);
+        if (isset($_POST['form_submitted']) && !empty($error)) {
+            echo 'Please fill in all the fields!</br>';
+            foreach($error as $value) {
+                echo $value.'</br>';
+            }
+        }
     ?>
     <h1> Contact form: </h1>
     <fieldset>
@@ -25,12 +32,6 @@
         </label>
         <label> Gender:
             <input type='text' name='gender' id=''>
-        </label>
-        <label> Linkedin:
-            <input type='url' name='linkedin' id=''>
-        </label>
-        <label> Github:
-            <input type='url' name='github' id=''>
         </label>
         <label> E-mail:
             <input type='email' name='email' id=''>
@@ -51,7 +52,7 @@
             <input type='text' name='author_quote' id=''>
         </label>
         <label> Created:
-            <input type='datetime-local' name='date-time' id=''>
+            <input type='datetime-local' name='date_time' id=''>
         </label>
         <input type="hidden" name="form_submitted" value="1" />
         <input type="submit" name="submit" value="Submit">
