@@ -9,8 +9,9 @@
 <body>
     <?php
         require_once 'connection.php';
-        include 'index.php';
+        require_once 'index.php';
         var_dump($_POST);
+        var_dump($_SESSION);
         if (isset($_POST['form_submitted']) && !empty($error)) {
             echo 'Please fill in all the fields!</br>';
             foreach($error as $value) {
@@ -22,37 +23,37 @@
     <fieldset>
     <form action="insert.php" method="post">
         <label> First name:
-            <input type='text' name='first_name' id=''>
+            <input type='text' name='first_name' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['first_name'];} ?>>
         </label>
         <label> Last name:
-            <input type='text' name='last_name' id=''>
+            <input type='text' name='last_name' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['last_name'];} ?>>
         </label>
         <label> Username:
-            <input type='text' name='username' id=''>
+            <input type='text' name='username' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['username'];} ?>>
         </label>
         <label> Gender:
-            <input type='text' name='gender' id=''>
+            <input type='text' name='gender' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['gender'];} ?>>
         </label>
         <label> E-mail:
-            <input type='email' name='email' id=''>
+            <input type='email' name='email' id=''value= <?php if (!empty($_SESSION)) {echo $_SESSION['email'];} ?>>
         </label>
         <label> Language:
-            <input type='text' name='language' id=''>
+            <input type='text' name='language' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['language'];} ?>>
         </label>
         <label> Avatar:
-            <input type='file' name='avatar' id=''>
+            <input type='file' name='avatar' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['avatar'];} ?>>
         </label>
         <label> Video:
-            <input type='url' name='video' id=''>
+            <input type='url' name='video' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['video'];} ?>>
         </label>
         <label> Quote:
-            <input type='text' name='quote' id=''>
+            <input type='text' name='quote' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['quote'];} ?>>
         </label>
         <label> Author of the quote:
-            <input type='text' name='author_quote' id=''>
+            <input type='text' name='author_quote' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['author_quote'];} ?>>
         </label>
         <label> Created:
-            <input type='datetime-local' name='date_time' id=''>
+            <input type='datetime-local' name='date_time' id='' value= <?php if (!empty($_SESSION)) {echo $_SESSION['date_time'];} ?>>
         </label>
         <input type="hidden" name="form_submitted" value="1" />
         <input type="submit" name="submit" value="Submit">
